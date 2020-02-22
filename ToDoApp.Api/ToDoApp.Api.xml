@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ToDoApp.Api</name>
+    </assembly>
+    <members>
+        <member name="M:ToDoApp.Api.Controllers.AuthController.Login(ToDoApp.Api.Dtos.Login.LoginPostDto)">
+            <summary>
+            Login
+            </summary>
+            <param name="loginDto">Username and password</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
