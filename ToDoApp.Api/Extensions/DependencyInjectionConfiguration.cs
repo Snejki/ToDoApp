@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using ToDoApp.Api.Interfaces;
 using ToDoApp.Api.Repositories;
 using ToDoApp.Api.Services;
 
@@ -23,6 +22,7 @@ namespace ToDoApp.Api.Extensions
         {
             services.AddTransient<IEncrypter, Encrypter>();
             services.AddTransient<IJwthandler, JwtHandler>();
+            services.AddTransient<IElementRepository, ElementRepository>();
         }
     }
 }

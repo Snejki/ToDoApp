@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ToDoApp.Api.Interfaces;
 using ToDoApp.Db;
 using ToDoApp.Db.Domain;
 

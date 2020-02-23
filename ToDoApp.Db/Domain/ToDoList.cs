@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ToDoApp.Db.Exceptions;
 using ToDoApp.Db.Interfaces;
 
 namespace ToDoApp.Db.Domain
@@ -31,7 +32,7 @@ namespace ToDoApp.Db.Domain
         {
             if(id == Guid.Empty)
             {
-
+                throw new ToDOAppException(nameof(Id), "The id of list can not be empty!");
             }
 
             Id = id;
@@ -41,6 +42,7 @@ namespace ToDoApp.Db.Domain
         {
             if (userId == Guid.Empty)
             {
+                throw new ToDOAppException(nameof(UserId), "The id of user can not be empty!");
 
             }
 
@@ -51,7 +53,7 @@ namespace ToDoApp.Db.Domain
         {
             if(string.IsNullOrEmpty(title))
             {
-
+                throw new ToDOAppException(nameof(Title), "Title can not be empty!");
             }
 
             Title = title;
@@ -61,7 +63,7 @@ namespace ToDoApp.Db.Domain
         {
             if(string.IsNullOrEmpty(color))
             {
-
+                throw new ToDOAppException(nameof(Color), "Color can not be empty!");
             }
 
             Color = color;
@@ -71,10 +73,15 @@ namespace ToDoApp.Db.Domain
         {
             if(addedAt == DateTime.MinValue)
             {
-
+                throw new ToDOAppException(nameof(AddedAt), "AddedAt not be empty!");
             }
 
             AddedAt = addedAt;
+        }
+
+        public void SetFinishedAt(DateTime? finishedAt)
+        {
+            FinishedAt = finishedAt;
         }
 
     }

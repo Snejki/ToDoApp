@@ -11,5 +11,250 @@
             <param name="loginDto">Username and password</param>
             <returns></returns>
         </member>
+        <member name="M:ToDoApp.Api.Controllers.ElementController.Get(System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Get list of element
+            </summary>
+            <param name="isFinished">Is element finished filter</param>
+            <param name="phrase">Phrase for filter element</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ElementController.Get(System.Guid)">
+            <summary>
+            Get single element
+            </summary>
+            <param name="id">Id of element</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ElementController.Post(ToDoApp.Api.Dtos.Element.ElementPostDto)">
+            <summary>
+            Create new element
+            </summary>
+            <param name="elementDto">data of new element</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ElementController.Put(System.Guid,ToDoApp.Api.Dtos.Element.ElementPutDto)">
+            <summary>
+            Edit element
+            </summary>
+            <param name="id">ID of element</param>
+            <param name="elementDto">data to update</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ElementController.Delete(System.Guid)">
+            <summary>
+            Delete element
+            </summary>
+            <param name="id">Id of element to delete</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ListController.Get(System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Get list of ToDoList
+            </summary>
+            <param name="isFinished">Is ToDoList finished </param>
+            <param name="phrase">Phrase for filter ToDoList</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ListController.Get(System.Guid)">
+            <summary>
+            Get single ToDoList
+            </summary>
+            <param name="id">ID of ToDoList</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ListController.Add(ToDoApp.Api.Dtos.List.ListPostDto)">
+            <summary>
+            Create new ToDoList
+            </summary>
+            <param name="dto">data of ToDoList</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ListController.Put(System.Guid,ToDoApp.Api.Dtos.List.ListPutDto)">
+            <summary>
+            Update ToDoList
+            </summary>
+            <param name="id">ID of ToDoList</param>
+            <param name="listDto">data to update</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.ListController.Delete(System.Guid)">
+            <summary>
+            Delete ToDoList
+            </summary>
+            <param name="id">ID of ToDoList</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.UserController.RegisterUser(ToDoApp.Api.Dtos.User.UserPostDto)">
+            <summary>
+            Register new user
+            </summary>
+            <param name="dto">data of user to be registred</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.UserController.Get">
+            <summary>
+            Get  data of logged user
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.UserController.ChangePassword(ToDoApp.Api.Dtos.User.UserChangePasswordDto)">
+            <summary>
+            Change password of logged user
+            </summary>
+            <param name="passwordDto">password data</param>
+            <returns></returns>
+        </member>
+        <member name="M:ToDoApp.Api.Controllers.UserController.Delete">
+            <summary>
+            Delete logged user
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementGetDto.Id">
+            <summary>
+            ID of new element
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementGetDto.Title">
+            <summary>
+            Title of element
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementGetDto.AddedAt">
+            <summary>
+            Time of element creation
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementGetDto.FinishedAt">
+            <summary>
+            Time of element finish
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementGetDto.ToDoListId">
+            <summary>
+            Id of List that contains element
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementPostDto.Title">
+            <summary>
+            Title of element
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementPostDto.ToDoListId">
+            <summary>
+            ID of list that should contain element
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementPutDto.Title">
+            <summary>
+            Title of element
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Element.ElementPutDto.IsFinished">
+            <summary>
+            Finish status of element
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListGetDto.Id">
+            <summary>
+            ID of list
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListGetDto.Title">
+            <summary>
+            Title of list
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListGetDto.AddedAt">
+            <summary>
+            Time of lsit creation
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListGetDto.FinishedAt">
+            <summary>
+            Time of list finish
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListGetDto.Color">
+            <summary>
+            background color of list
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListGetDto.Elements">
+            <summary>
+            List of elements in list
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListPostDto.Title">
+            <summary>
+            Title of list
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListPostDto.Color">
+            <summary>
+            Background color of list
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.List.ListPutDto.IsFinished">
+            <summary>
+            List finished status
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Login.LoginPostDto.Username">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.Login.LoginPostDto.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserChangePasswordDto.CurrentPassword">
+            <summary>
+            Currenct passsword
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserChangePasswordDto.NewPassword">
+            <summary>
+            New password
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserGetDto.Id">
+            <summary>
+            ID of user
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserGetDto.Username">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserGetDto.Email">
+            <summary>
+            Email of user
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserGetDto.AddedAt">
+            <summary>
+            Time of creation
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserPostDto.Username">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserPostDto.Email">
+            <summary>
+            Email of user
+            </summary>
+        </member>
+        <member name="P:ToDoApp.Api.Dtos.User.UserPostDto.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
     </members>
 </doc>

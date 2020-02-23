@@ -29,7 +29,7 @@ namespace ToDoApp.Db.Domain
         {
             if(id == Guid.Empty)
             {
-                throw new SocialAppException(nameof(Id), "The id of user can not be empty!");
+                throw new ToDOAppException(nameof(Id), "The id of user can not be empty!");
             }
 
             Id = id;
@@ -39,8 +39,7 @@ namespace ToDoApp.Db.Domain
         {
             if(string.IsNullOrEmpty(username)) // + regex
             {
-                throw new SocialAppException(nameof(username), "Username can not be empty!");
-
+                throw new ToDOAppException(nameof(username), "Username can not be empty!");
             }
 
             Username = username;
@@ -50,7 +49,7 @@ namespace ToDoApp.Db.Domain
         {
             if(string.IsNullOrEmpty(hash) || string.IsNullOrEmpty(salt))
             {
-                throw new SocialAppException("password", "There was problem with your password!");
+                throw new ToDOAppException("password", "There was problem with your password!");
             }
 
             Hash = hash;
@@ -61,7 +60,7 @@ namespace ToDoApp.Db.Domain
         {
             if(string.IsNullOrEmpty(email))
             {
-                throw new SocialAppException(nameof(email), "Email can not be null!");
+                throw new ToDOAppException(nameof(email), "Email can not be null!");
             }
 
             Email = email;
@@ -71,7 +70,7 @@ namespace ToDoApp.Db.Domain
         {
             if(addedAt  == DateTime.MinValue)
             {
-                throw new SocialAppException(nameof(addedAt), "There was problem with adding date!");
+                throw new ToDOAppException(nameof(addedAt), "There was problem with adding date!");
             }
 
             AddedAt = addedAt;

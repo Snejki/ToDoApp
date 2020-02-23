@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ToDoApp.Db.Domain;
 
-namespace ToDoApp.Api.Interfaces
+namespace ToDoApp.Api.Repositories
 {
     public interface IUserRepository
     {

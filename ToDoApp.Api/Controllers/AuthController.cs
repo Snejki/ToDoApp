@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Api.Dtos.Login;
-using ToDoApp.Api.Interfaces;
+using ToDoApp.Api.Repositories;
 using ToDoApp.Api.Services;
 
 namespace ToDoApp.Api.Controllers
@@ -32,6 +32,8 @@ namespace ToDoApp.Api.Controllers
         /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
+        [ApiConventionMethod(typeof(DefaultApiConventions),
+                     nameof(DefaultApiConventions.Put))]
         public async Task<IActionResult> Login(LoginPostDto loginDto)
         {
             var user = await _userRepository.GetByUsername(loginDto.Username);

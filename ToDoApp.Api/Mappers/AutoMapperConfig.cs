@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using ToDoApp.Api.Dtos.Element;
 using ToDoApp.Api.Dtos.List;
+using ToDoApp.Api.Dtos.User;
 using ToDoApp.Db.Domain;
 
 namespace ToDoApp.Api.Mappers
@@ -9,6 +11,8 @@ namespace ToDoApp.Api.Mappers
         public AutoMapperConfig()
         {
             CreateMap<ToDoList, ListGetDto>();
+            CreateMap<ToDoElement, ElementGetDto>();
+            CreateMap<User, UserGetDto>();
         }
     }
 }

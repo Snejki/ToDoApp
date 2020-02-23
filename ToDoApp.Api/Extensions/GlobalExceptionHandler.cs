@@ -20,14 +20,14 @@ namespace ToDoApp.Api.Extensions
 
                     var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
 
-                    if(contextFeature?.Error is SocialAppException)
+                    if(contextFeature?.Error is ToDOAppException)
                     {
                         context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
                         var response = new
                         {
                             statusCode = context.Response.StatusCode,
-                            errors = $"{((SocialAppException)contextFeature.Error).Message}" 
+                            errors = $"{((ToDOAppException)contextFeature.Error).Message}" 
                         };
 
                         await context.Response.WriteAsync(JsonConvert.SerializeObject(response));

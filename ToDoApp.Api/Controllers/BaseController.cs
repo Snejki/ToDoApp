@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ToDoApp.Api.Controllers
 {
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ApiController]
     [Authorize]
     public abstract class BaseController : ControllerBase

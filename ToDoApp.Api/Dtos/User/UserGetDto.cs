@@ -1,23 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
 
 namespace ToDoApp.Api.Dtos.User
 {
-    public class UserPostDto
+    public class UserGetDto
     {
+        /// <summary>
+        /// ID of user
+        /// </summary>
+        public Guid Id { get; set; }
         /// <summary>
         /// Username
         /// </summary>
-        [Required]
-        public string Username { get; set; }
+        public string Username { get;  set; }
         /// <summary>
         /// Email of user
         /// </summary>
-        [Required]
         public string Email { get; set; }
         /// <summary>
-        /// Password
+        /// Time of creation
         /// </summary>
-        [Required]
-        public string Password { get; set; }
+        public DateTime AddedAt { get; set; }
     }
 }

@@ -6,9 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System.Reflection;
 using ToDoApp.Api.Extensions;
-using ToDoApp.Api.Mappers;
 using ToDoApp.Db;
 
 namespace ToDoApp.Api
@@ -34,19 +32,7 @@ namespace ToDoApp.Api
                 => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddAutoMapper(typeof(Startup));
-
-            services.AddSwaggerGen(setupAction => {
-                setupAction.SwaggerDoc(
-                    "ToDoAppOpenApiSpecification",
-                    new Microsoft.OpenApi.Models.OpenApiInfo()
-                    {
-                        Title = "ToDoApp",
-                        Version = "1"
-                    });
-
-                var xmlDocumentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                setupAction.IncludeXmlComments(xmlDocumentFile);
-            });
+            services.AddSwaggerExt();
 
             services.AddDependencyInjection();
             services.AddSettingsConfiguration(Configuration);
@@ -65,13 +51,7 @@ namespace ToDoApp.Api
                 app.ConfigureExceptionHandler(logger);
             }
 
-            app.UseSwagger();
-            app.UseSwaggerUI(setupAction =>
-            {
-                setupAction.SwaggerEndpoint("/swagger/ToDoAppOpenApiSpecification/swagger.json", "ToDoApp API");
-                setupAction.RoutePrefix = "";
-            });
-
+            app.UseSswaggerExt();
             app.UseAuthentication();
             app.UseMvc();
         }
