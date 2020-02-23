@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using ToDoApp.Db.Exceptions;
+using ToDoApp.Db.Interfaces;
 
 namespace ToDoApp.Db.Domain
 {
-    public class User
+    public class User : IEntity
     {
         public Guid Id { get; private set; }
         public string Username { get; private set; }

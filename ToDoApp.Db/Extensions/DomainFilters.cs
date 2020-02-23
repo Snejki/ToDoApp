@@ -32,5 +32,10 @@ namespace ToDoApp.Db.Extensions
 
             return query;
         }
+
+        public static IQueryable<T> Paginate<T>(this IQueryable<T> query, int page, int pageSize) where T : IEntity
+        {
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
     }
 }

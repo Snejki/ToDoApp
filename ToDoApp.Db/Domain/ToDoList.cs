@@ -5,7 +5,7 @@ using ToDoApp.Db.Interfaces;
 
 namespace ToDoApp.Db.Domain
 {
-    public class ToDoList : IUserId, IFinishable, ISearchable
+    public class ToDoList : IUserId, IFinishable, ISearchable, IEntity
     {
         public Guid Id { get; private set; }
         public string Title { get; private set; }

@@ -35,11 +35,13 @@ namespace ToDoApp.Api.Controllers
         /// </summary>
         /// <param name="isFinished">Is ToDoList finished </param>
         /// <param name="phrase">Phrase for filter ToDoList</param>
+        /// <param name="page">Size of page</param>
+        /// <param name="pageSize">Number of page</param>
         /// <returns>ActionResult</returns>
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
-        public async Task<IActionResult> Get(bool? isFinished, string phrase = "")
+        public async Task<IActionResult> Get(bool? isFinished, string phrase = "", int page = 1, int pageSize = 5)
         {
             var user = await _userRepository.GetById(AuthUserId);
             if (user == null)
@@ -47,10 +49,16 @@ namespace ToDoApp.Api.Controllers
                 return Unauthorized();
             }
 
-            var toDoLists = await _listRepository.GetForUser(AuthUserId, phrase, isFinished);
+            var pagesCount = await _listRepository.CountPages(AuthUserId, phrase, isFinished, pageSize);
+            if(page > pagesCount)
+            {
+                page = pagesCount;
+            }
 
+            var toDoLists = await _listRepository.GetForUser(AuthUserId, phrase, isFinished, page, pageSize);
             var listsDto = _mapper.Map<ICollection<ListGetDto>>(toDoLists);
 
+            AddPaginationInfo(page, pagesCount);
             return Ok(listsDto);
         }
 

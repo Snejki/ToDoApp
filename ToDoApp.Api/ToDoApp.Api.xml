@@ -48,12 +48,14 @@
             <param name="id">Id of element to delete</param>
             <returns>ActionResult</returns>
         </member>
-        <member name="M:ToDoApp.Api.Controllers.ListController.Get(System.Nullable{System.Boolean},System.String)">
+        <member name="M:ToDoApp.Api.Controllers.ListController.Get(System.Nullable{System.Boolean},System.String,System.Int32,System.Int32)">
             <summary>
             Get list of ToDoList
             </summary>
             <param name="isFinished">Is ToDoList finished </param>
             <param name="phrase">Phrase for filter ToDoList</param>
+            <param name="page">Size of page</param>
+            <param name="pageSize">Number of page</param>
             <returns>ActionResult</returns>
         </member>
         <member name="M:ToDoApp.Api.Controllers.ListController.Get(System.Guid)">

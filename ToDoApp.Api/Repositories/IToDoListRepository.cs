@@ -8,8 +8,8 @@ namespace ToDoApp.Api.Repositories
     public interface IToDoListRepository
     {
         Task<ToDoList> GetById(Guid id);
-        Task<ICollection<ToDoList>> Get();
-        Task<ICollection<ToDoList>> GetForUser(Guid userId, string searchPhrase, bool? isFinished);
+        Task<int> CountPages(Guid userId, string searchPhrase, bool? isFinished, int pageSize);
+        Task<ICollection<ToDoList>> GetForUser(Guid userId, string searchPhrase, bool? isFinished, int page, int pageSize);
 
         Task<bool> Add(ToDoList toDoList);
         Task<bool> Update(ToDoList toDoList);

@@ -24,9 +24,14 @@ namespace ToDoApp.Api.Repositories
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async Task<ICollection<ToDoList>> Get()
+        public async Task<int> CountPages(Guid userId, string searchPhrase, bool? isFinished, int pageSize)
         {
-            return await _context.ToDoLists.ToListAsync();
+            return (await _context
+                .ToDoLists
+                .FilterByUserId(userId)
+                .SearchByTitle(searchPhrase)
+                .FilterByFinishedStatus(isFinished)
+                .CountAsync() + pageSize - 1) / pageSize;
         }
 
         public async Task<ToDoList> GetById(Guid id)
@@ -34,13 +39,14 @@ namespace ToDoApp.Api.Repositories
             return await _context.ToDoLists.SingleOrDefaultAsync(l => l.Id == id);
         }
 
-        public async Task<ICollection<ToDoList>> GetForUser(Guid userId, string searchPhrase, bool? isFinished)
+        public async Task<ICollection<ToDoList>> GetForUser(Guid userId, string searchPhrase, bool? isFinished, int page, int pageSize)
         {
             return await _context
                 .ToDoLists
                 .FilterByUserId(userId)
                 .SearchByTitle(searchPhrase)
                 .FilterByFinishedStatus(isFinished)
+                .Paginate(page, pageSize)
                 .ToListAsync();        
         }
 

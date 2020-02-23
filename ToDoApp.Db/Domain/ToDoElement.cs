@@ -4,7 +4,7 @@ using ToDoApp.Db.Interfaces;
 
 namespace ToDoApp.Db.Domain
 {
-    public class ToDoElement : IFinishable, ISearchable
+    public class ToDoElement : IFinishable, ISearchable, IEntity
     {
         public Guid Id { get; private set; }
         public string Title { get; private set; }

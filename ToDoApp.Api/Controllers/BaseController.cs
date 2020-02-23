@@ -14,5 +14,10 @@ namespace ToDoApp.Api.Controllers
             Guid.Parse(User.Identity.Name) :
             Guid.Empty;
 
+        protected void AddPaginationInfo(int currentpage, int pagesCount)
+        {
+            Response.Headers.Add("Pagination-CurrentPage", $"{currentpage}");
+            Response.Headers.Add("Pagination-PagesCount", $"{pagesCount}");
+        }
     }
 }
