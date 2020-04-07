@@ -53,6 +53,7 @@ namespace ToDoApp.Api
 
             app.UseSswaggerExt();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseMvc();
         }
     }
